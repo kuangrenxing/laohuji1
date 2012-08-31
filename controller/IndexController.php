@@ -43,8 +43,6 @@ class IndexController extends Controller
 
 		session_start();
 		
-
-		
 		if($_SESSION['openid']=='' || $_SESSION['openkey']=='')
 		{
 			$_SESSION['openid']=$_GET['openid'];
@@ -126,6 +124,7 @@ class IndexController extends Controller
 			$this->view->auth = serialize($_SESSION);
 			
 			$uid=$this->regUser($_SESSION['userinfo']);
+			$_SESSION['uid'] = $uid;
 
 		}
 		
@@ -205,8 +204,10 @@ class IndexController extends Controller
 			$headImg_128 = GetImage($newUser['head_pic'] , $imgUrl_128 , 1);
 			$headImg_80 = GetImage($newUser['head_pic'] , $imgUrl_80 , 1);
 			$headImg_36 = GetImage($newUser['head_pic'] , $imgUrl_36 , 1);
-			$headImgUrl = substr($headImg , 4);
-	
+			$headImgUrl = substr($headImg , 4);			
+			
+			$newUser['head_pic'] = str_replace('../.', '', $imgUrl);
+			$_SESSION['head_pic'] = $newUser['head_pic'];
 			
 			$uid = $userID  = $this->user->add($newUser , true);
 			
@@ -232,6 +233,7 @@ class IndexController extends Controller
 			$stgle = $userInfo['stgle'];
 			$headImgUrl = $userInfo['head_pic'];
 	
+			$_SESSION['head_pic'] = $userInfo['head_pic'];
 			
 			$conn['type'] 	= CONNECT_TYPE_QQ;
 			$conn['uid'] 	= $uid;

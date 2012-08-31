@@ -39,22 +39,38 @@ class LastController extends Controller
 		$follow  = $this->getParam('followtl');
 		$totl 	 = $this->getParam('totuolar');
 		
-		//新浪微博Oauth
+		
+		header("content-type:text/html;charset=utf-8");
 		header('P3P:CP=CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR');
 				
 		session_start();
-
-		if ($totl && $totl == 1)
+		
+		$this->view->data = $appInfo;
+		
+		
+		
+// 		if ($totl && $totl == 1)
+		if (true)
 		{
 			
 			$post=array();
 			
 			$post['px_id'] = $appInfo['pxid'];
 			$post['username'] = $_SESSION['userinfo']['nickname'];
-			$post['uid'] = 0;
-			$post['head_pic'] = $_SESSION['userinfo']['figureurl'];
+			if(isset($_SESSION['uid']))
+			{
+				$post['uid'] = $_SESSION['uid'];
+				
+			}
+			else 
+			{
+				$this->redirectToController("index");
+				$post['uid'] = 0;
+			}
+			$post['head_pic'] = $_SESSION['head_pic'];
 			$post['comment'] = $pyu;
 			$post['time_created'] = time();
+			
 				//发拖拉微博
 			$commID = $this->comment->add($post , true);
 				
