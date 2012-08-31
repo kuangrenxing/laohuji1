@@ -1,0 +1,94 @@
+﻿@charset "utf-8";
+
+/*------------------------全局变量-------------------------------------*/
+html,body,div,span,p,h1,h2,h3,h4,h5,h6,em,img,strong,blockquote,
+sub,sup,tt,i,b,dd,dl,dt,form,label,table,caption,
+tbody, tfoot, thead,tr,th,td,ul,li,p,a,ol{ margin:0;padding:0;}
+body{font-size:12px; color:#FFF;font-family:"微软雅黑", Arial, sans-serif; background:#D8006C url(../img/bodyBg.jpg) repeat-x left top; padding:0;}
+.cbody{ margin:0 auto; width:760px; position:relative;}
+input,select,textarea{vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0;}
+img{ border:0;}
+em,i{font-style:normal;}
+ul,ol,li{list-style-type:none;}
+
+a{color:#555454;text-decoration:none;}
+a:hover,a:active,a:focus{ text-decoration:underline;}
+
+.mt15{margin-top:15px;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.mb10{margin-bottom:10px;}
+.ml10{margin-left:10px;}
+.left{	float:left;}
+.right{	float:right;}
+.b{ font-weight:bold;}
+.bor{ border-left:1px solid #31619A; border-right:1px solid #31619A;}
+
+.clear {clear: both;}
+.clearfix:after {clear:both; content:'';display: block;font-size: 0;line-height: 0;visibility: hidden;	width: 0;height: 0;}
+.clearfix {+display: inline-block;}
+* html .clearfix {height: 1%;}
+
+#cityBg{}
+#wappper{ background:url(../img/wrapBg.jpg) no-repeat;  height:668px; padding-top:65px;}
+#wrap{ width:405px; margin:0 auto; height:590px;}
+
+.titH2{ color:#FFF; font-size:15px; font-weight:900; text-align:center;}
+.titH2B{ text-align:center; padding:14px 0px;}
+.titH2B span{ color:#FFF; font-size:16px;font-weight:900;}
+.titH2B .sina{ background:url(../img/sian.png) no-repeat left center; padding-left:32px; margin-right:40px;}
+.titH2C{ font-size:44px; font-weight:900; text-align:center; padding:30px 0;}
+.titH2C span{background:url(../img/sucIco.png) no-repeat left center; padding-left:60px; display:inline-block; line-height:50px;}
+
+#myForm{ margin:8px 0 0 35px;}
+#myForm li{ float:left;}
+#myForm li label{ float:left; display:inline-block; line-height:26px; font-size:14px; font-weight:900; margin-right:8px;}
+#myForm li .nInput{ background:url(../img/formBg01.gif) no-repeat; padding-left:4px; width:102px; height:28px; line-height:28px; border:none; float:left; color:#7A3924; margin-right:10px;}
+#myForm li dl{ float:left; width:114px; height:28px; line-height:28px; position:relative; color:#7A3924; z-index:99}
+#myForm li dl dt{ background:url(../img/formBg02.gif) no-repeat; width:114px; height:28px; line-height:28px;}
+#myForm li dl dt i{ display:block; width:25px; height:28px; position:absolute; top:0px; right:0px; cursor:pointer;}
+#myForm li dl dt span{ margin-left:12px; font-size:14px;}
+#myForm li dl dd{ position:absolute;border:1px solid #C90068; text-align:center; background:#EBC6D9; width:112px; font-size:14px; font-weight:900; cursor:pointer; display:none; z-index:99}
+
+#add{ margin:8px 0 0 55px;}
+.add{ float:left; background:url(../img/addBg.png) ; width:280px; height:62px; overflow:hidden; text-align:center;}
+.add a{ background:url(../img/imgBg.gif); width:46px; height:46px;display:inline-block; position:relative; top:8px;}
+.add a img{ position:relative; top:4px;}
+.add tt{ font-weight:900; color:#E6006B; margin:0 6px; font-size:16px; position:relative; *top:-9px;}
+#play{float:left;  background:url(../img/star.png); text-indent:-100em; margin-left:8px; _display:inline;overflow:hidden;}
+#play a{ display:block; width:40px; height:60px; }
+.bImg{ background:url(../img/bimgBg.png); width:282px; height:273px; padding-top:9px; text-align:center;}
+.yyzs h3{ font-size:18px; width:290px; text-align:center; font-weight:900; line-height:35px;}
+.yyzs span{font-size:14px; font-weight:900; float:left; padding-right:10px;}
+.yyzs textarea{ background:url(../img/textBg.png) no-repeat; width:224px; height:53px; border:none; overflow:auto; vertical-align:top; float:left; padding:3px 0 0 4px;font-size:11px;font-family:"微软雅黑", Arial, sans-serif;color:#fff;}
+
+#weibo{ width:340px; margin:8px auto 0 auto; border-top:1px solid #FB90B1;}
+#weibo h3{ font-size:12px; margin:5px 0 5px 30px;}
+#weibo a{display:block; float:left; margin-right:10px; _display:inline;height:42px; text-indent:-100em; overflow:hidden;}
+#weibo p{ margin-left:30px;}
+#weibo .sharewb{  background:url(../img/btn01.png); width:149px; }
+#weibo .copy{ background:url(../img/btn02.png); width:119px;}
+
+#fbwb{ width:379px; margin:0 auto;}
+#fbwb h2{ font-size:18px; font-weight:900; margin:10px 0 6px 160px;}
+#fbwb h2 em{ font-size:24px;}
+#fbwb textarea{ background:url(../img/textBg02.png) no-repeat; width:371px; height:100px;  border:none; overflow:auto; padding:5px 0 0 8px;}
+#fbwb p{ border-top:1px solid #FB90B1; margin-top:10px; padding-top:12px;}
+#fbwb p span{ float:left; font-weight:900; font-size:14px; margin:0 20px 0 30px;}
+#fbwb p a{ float:left; background:url(../img/fbBtn.png); width:119px; height:42px; text-indent:-1000em; overflow:hidden;}
+
+#tl h5{ margin-left:38px;}
+#tl h5 a{ display:block; float:left; text-indent:-100em; overflow:hidden; height:42px; margin-right:10px;}
+#tl a.test{ background:url(../img/btn03.png); width:149px;}
+#tl a.see{ background:url(../img/btn04.png); width:169px; line-height:20px;}
+#tl h2{ text-align:center; font-size:16px; font-size:14px; padding:40px 0 0 0;}
+#tl h2 strong{ font-size:18px;}
+#tl div{ margin:45px 0 0 35px;}
+#tl div img{ float:left;}
+#tl div span{ margin-left:20px; float:left; _display:inline;}
+#tl div span a{ font-size:22px; font-weight:900; color:#FFF;}
+#tl div span .gz{ background:url(../img/btn05.png); height:42px; width:149px; text-indent:-100em; overflow:hidden; display:block;  margin:42px 0;}
+
+#footer h1{ background:url(../img/logo.gif); width:130px; height:22px; float:left; margin:26px 0 0 62px; _display:inline; text-indent:-100em; overflow:hidden;}
+#footer p{ float:left; margin:9px 0 0 40px; line-height:20px;_display:inline; }

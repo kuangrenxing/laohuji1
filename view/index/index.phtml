@@ -1,0 +1,152 @@
+
+
+<?php
+header('Content-type: text/html; charset=utf-8');
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>美装艳遇老虎机 - 拖拉网</title>
+<link href="<?php echo APP_SINA_URL;?>src/css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo APP_SINA_URL;?>src/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<?php echo APP_SINA_URL;?>src/js/jquery.timers.js"></script>
+
+<script type="text/javascript" charset="utf-8"    src="http://fusion.qq.com/fusion_loader?appid=<?php echo APP_ID;?>&platform=qzone"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="<?php echo APP_SINA_URL;?>src/js/DD_belatedPNG_0.0.8a.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('.pngFix');</script>
+<![endif]-->
+<script type="text/javascript">
+var pxImg=[],prodA=[],prodB=[],prodC=[],prodD=[];
+<?php 
+foreach ($this->data as $pk=>$px)
+{
+	echo <<<EOF
+pxImg[$pk] = "http://www.tuolar.com/{$px['pximg']}";prodA[$pk] = "http://www.tuolar.com/{$px['itempic1']}";prodB[$pk] = "http://www.tuolar.com/{$px['itempic2']}";prodC[$pk] = "http://www.tuolar.com/{$px['itempic3']}";prodD[$pk] = "http://www.tuolar.com/{$px['itempic4']}";
+EOF;
+}
+?>
+window.preload_pximg = new Array();window.preload_proda = new Array();window.preload_prodb = new Array();window.preload_prodc = new Array();window.preload_prodd = new Array();
+for(var tl_ii = 0 ; tl_ii < 10 ; tl_ii ++){
+var pximg_src = pxImg[tl_ii];var pximg = new Image();pximg.src = pximg_src;preload_pximg.push(pximg);
+var proda_src = prodA[tl_ii];var prodaimg = new Image();prodaimg.src = proda_src;preload_proda.push(prodaimg);
+var prodb_src = prodB[tl_ii];var prodbimg = new Image();prodbimg.src = prodb_src;preload_prodb.push(prodbimg);
+var prodc_src = prodC[tl_ii];var prodcimg = new Image();prodcimg.src = prodc_src;preload_prodc.push(prodcimg);
+var prodd_src = prodD[tl_ii];var proddimg = new Image();proddimg.src = prodd_src;preload_prodd.push(proddimg);
+}
+</script>
+</head>
+<body>
+
+<?php
+//验证用户是否有效
+if($_SESSION['userinfo']=="" || $_SESSION['userinfo']==null):?>
+<script>
+	fusion2.dialog.relogin();
+</script>
+<?php endif;?>
+
+<div id="cityBg" class="cbody">
+
+<div id="wappper" class="cbody pngFix">
+	<div id="wrap" class="clearfix">
+	<form action="<?php echo APP_qzone_URL;?>next.php" method="post" name="pxForm" id="pxForm">
+    	<h2 class="titH2">输入他的名字，选择你的星座，看看今晚的艳遇指数！</h2>
+        <!--星座选择-->
+        <div id="myForm">
+        	<ul class="clearfix">
+        	<input type="hidden" name="J_flag" id="J_flag" value="0"/>
+            	<li><label>他的名字</label><input type="text" class="nInput" name="pname" id="pname" /></li>
+                <li>
+                	<label>星座</label>
+                    <dl>
+                    	<dt><span>双鱼座</span><i>&nbsp;</i></dt>
+                    	<?php
+                    	foreach ($this->star as $k=>$star){
+                    		if ($k){
+                    			echo "<dd>$star</dd>";
+                    		}
+                    	}
+                    	?>
+                    </dl>
+                </li>
+            </ul>
+        </div><!--星座选择-->
+        
+        <div id="add">
+        	<div class="add pngFix">
+        		<div id="prod-box">
+        		        		
+		        <a id="url1" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['itempic1'];?>" width="38" height="38" id="img1" /></a><tt>+</tt>
+		        <a id="url2" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['itempic2'];?>" width="38" height="38" id="img2" /></a><tt>+</tt>
+		        <a id="url3" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['itempic3'];?>" width="38" height="38" id="img3" /></a><tt>+</tt>
+		        <a id="url4" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['itempic4'];?>" width="38" height="38" id="img4" /></a>
+		        </div>
+            </div>
+            <p id="play" class="pngFix"><a href="#">播放</a></p>
+            <?php /*
+            <div class="clear bImg pngFix"><a href="<?php echo APP_DOMAIN.'px/detail.php?id='.$this->show['pxid'];?>" id="pxurl" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['pximg'];?>" id="px" width="264" height="264" /></a></div>
+            */ ?>
+            <div class="clear bImg pngFix"><a id="pxurl" target="_blank"><img src="<?php echo APP_DOMAIN.$this->show['pximg'];?>" id="px" width="264" height="264" /></a></div>
+            <div class="yyzs clearfix">
+            	<h3><i id="ynum">100</i>%艳遇指数</h3>
+            	<input type="hidden" name="appid" id="appid" value="<?php echo $this->show['id'];?>" />
+            	<input type="hidden" name="star" id="star" value="<?php echo $this->show['star'];?>" />
+            	<input type="hidden" name="pcontent" id="pcontent" value="<?php echo $this->show['pyu'];?>" />
+            	<input type="hidden" id="pximg" value="<?php echo APP_DOMAIN.$this->show['pximg'];?>" />
+            	<input type="hidden" id="prodpic1" value="<?php echo APP_DOMAIN.$this->show['itempic1'];?>" />
+            	<input type="hidden" id="prodpic2" value="<?php echo APP_DOMAIN.$this->show['itempic2'];?>" />
+            	<input type="hidden" id="prodpic3" value="<?php echo APP_DOMAIN.$this->show['itempic3'];?>" />
+            	<input type="hidden" id="prodpic4" value="<?php echo APP_DOMAIN.$this->show['itempic4'];?>" />
+            	<input type="hidden" name="wbauth" value="<?php echo $this->auth;?>" />
+                <span>艳遇<br />鉴定书</span><textarea class="pngFix" name="pyu" id="pyu"></textarea>
+            </div>
+        </div>
+        
+        <div id="weibo">
+        	<h3>
+        	
+        	
+        	<span style="line-height: 24px;height: 24px;display: block;float: left;width: 120px;">关注拖拉网官方微博  </span>
+        	<iframe src="http://open.qzone.qq.com/like?url=http%3A%2F%2Fuser.qzone.qq.com%2F622001561&type=button_num&width=400&height=30&style=2" allowtransparency="true" scrolling="no" border="0" frameborder="0" style="width:190px;height:24px;border:none;overflow:hidden;float: left;"></iframe>
+        	
+        	</h3>
+            <p><a href="javascript:void(0);" onclick="document.pxForm.submit();" class="sharewb pngFix">发到新浪微博</a><a href="javascript:void(0);"  title="复制图片到QQ" onClick="CopyImage(document.getElementById('px'))" id="copypx" class="copy pngFix">复制图片</a></p>
+        </div>
+    </form> 
+    </div>
+
+    <!--footer-->
+    <div id="footer">
+        <h1>拖拉网</h1>
+        <p>拖拉网是一个China最领先时尚导购网站，时尚达人随时自主同步世界潮流，<br />收录电商服装，搭配个性的新鲜时尚行头。<br />拖！我最爱  www.tuolar.com</p>
+    </div><!--end/footer-->
+    
+</div>
+</div>
+<script type="text/javascript" src="src/js/px.js"></script>
+<script type="text/javascript">
+function CopyImage(img)
+{
+  if (img.tagName != 'IMG') return;
+  if (typeof img.contentEditable == 'undefined' || !document.body.createControlRange){
+    	alert('抱歉您的浏览器不支持直接复制图片，请在图片上点击右键“复制”');
+  }
+  else{
+    var ctrl = document.body.createControlRange();
+    img.contentEditable = true;
+    ctrl.addElement(img);
+    ctrl.execCommand('Copy');
+    img.contentEditable = false;
+     	alert('图片复制成功\n直接在QQ聊天窗口粘贴（Ctrl+V）即可');
+  }
+}
+
+
+
+</script>
+</body>
+</html>
+

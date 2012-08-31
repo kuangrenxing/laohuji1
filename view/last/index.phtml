@@ -1,0 +1,83 @@
+<?php
+header('Content-type: text/html; charset=utf-8');
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>美装艳遇老虎机 - 拖拉网</title>
+<link href="<?php echo APP_SINA_URL;?>src/css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo APP_SINA_URL;?>src/js/jquery-1.4.2.min.js"></script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="<?php echo APP_SINA_URL;?>src/js/DD_belatedPNG_0.0.8a.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('.pngFix');</script>
+<![endif]-->
+
+</head>
+<script type="text/javascript" charset="utf-8"    src="http://fusion.qq.com/fusion_loader?appid=<?php echo APP_ID;?>&platform=qzone"></script>
+<body>
+<?php
+//验证用户是否有效
+if($_SESSION['userinfo']=="" || $_SESSION['userinfo']==null):?>
+<script>
+	fusion2.dialog.relogin();
+</script>
+<?php endif;?>
+
+
+<div id="cityBg" class="cbody">
+<div id="wappper" class="cbody pngFix">
+	<div id="wrap" class="clearfix">
+    	<h2 class="titH2C"><span class="pngFix">微博发布成功!</span></h2>
+        
+        <div id="tl">
+        	<h5 class="clearfix"><a href="<?php echo APP_qzone_URL;?>app.php" class="pngFix test">继续测试</a>去我的空间看看<img id="my_pic" src="<?php echo $this->userinfo['figureurl'];?>" /></h5>
+            <h2><strong>推荐拖拉网官方微博</strong><br />请关注拖拉网微博，第一时间获知更多<br />好玩有趣的时尚搭配哦！</h2>
+            <div style="margin-left:17px;">
+            	<img src="<?php echo APP_SINA_URL;?>src/img/tuolar.jpg" width="162" height="161" />
+                <span style="margin-left:10px;">
+                 	<iframe src="http://open.qzone.qq.com/like?url=http%3A%2F%2Fuser.qzone.qq.com%2F622001561&type=button_num_user&width=400&height=90&style=2" allowtransparency="true" scrolling="no" border="0" frameborder="0" style="width:215px;height:90px;border:none;overflow:hidden;"></iframe>
+                	<?php /*?><a href="<?php echo APP_SINA_URL;?>follow.php" class="gz pngFix">+马上关注</a><?php */?>
+                    <!-- <a href="http://weibo.com/tuolar" target="_blank">去拖拉网空间看看</a> -->
+                   
+                </span>
+                <span class="exit"><a href="http://user.qzone.qq.com/622001561/main" target="_blank">去拖拉网空间</a></span>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!--footer-->
+    <div id="footer">
+        <h1>拖拉网</h1>
+        <p>拖拉网是一个China最领先时尚导购网站，时尚达人随时自主同步世界潮流，<br />收录电商服装，搭配个性的新鲜时尚行头。<br />拖！我最爱  www.tuolar.com</p>
+    </div><!--end/footer-->
+</div>
+</div>
+
+</body>
+<style>
+.exit{
+	display: block;width: 300px;padding-top: 30px;padding-left: 90px;
+}
+</style>
+
+
+<script>
+$(function(){
+	$("#my_pic").click(function(){
+	
+		fusion2.nav.toHome
+		({
+		  // 可选。为true则在当前窗口打开，为false或不指定则在新窗口打开。
+		  self : false
+		});
+	});
+	//return false;	
+});
+
+
+</script>
+</html>
