@@ -58,11 +58,11 @@ if($_SESSION['userinfo']=="" || $_SESSION['userinfo']==null):?>
         <div id="myForm">
         	<ul class="clearfix">
         	<input type="hidden" name="J_flag" id="J_flag" value="0"/>
-            	<li><label>他的名字</label><input type="text" class="nInput" name="pname" id="pname" /></li>
+            	
                 <li>
                 	<label>星座</label>
                     <dl>
-                    	<dt><span>双鱼座</span><i>&nbsp;</i></dt>
+                    	<dt><span id="J_star">请选择</span><i>&nbsp;</i></dt>
                     	<?php
                     	foreach ($this->star as $k=>$star){
                     		if ($k){
@@ -72,6 +72,7 @@ if($_SESSION['userinfo']=="" || $_SESSION['userinfo']==null):?>
                     	?>
                     </dl>
                 </li>
+                <li><label>他的名字</label><input type="text" class="nInput" name="pname" id="pname" /></li>
             </ul>
         </div><!--星座选择-->
         

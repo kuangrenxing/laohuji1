@@ -13,8 +13,12 @@ starArr[11] = "金牛座";
 starArr[12] = "白羊座";
 
 function checkName(){
-	if($("#pname").val()=="" || $("#pname").val().length==0){
-		alert("名字不能为空");
+	if($("#pname").val()=="" || $("#pname").val().length==0 || $("#J_star").text()=="请选择"){
+		if($("#J_star").text()=="请选择"){
+			alert("请选择星座");
+		}else{
+			alert("请填写名字");
+		}			
 		$("#pname").focus();
 		return false;
 	}else
@@ -23,7 +27,7 @@ function checkName(){
 
 function timeout(){
 	
-	
+	alert("1");
 	setTimeout(function(){
 		$("#play").css("background","url(http://www.tuolar.com/apps/sinala/src/img/star.png)");
 		$("#add").stopTime();
@@ -34,9 +38,9 @@ function timeout(){
 		$("#img3").attr('src',$("#prodpic3").val());
 		$("#img4").attr('src',$("#prodpic4").val());
 		$("#px").attr('src',$("#pximg").val());
-		
-		$("#pxForm").submit();
-	}, 10000);
+		alert("2");
+		//$("#pxForm").submit();
+	}, 1000);
 	$("#J_flag").val("0");
 	
 }
@@ -44,12 +48,15 @@ function timeout(){
 
 
 $(document).ready(function() {
-	$("#pname").blur(function(){
+	
+	
+	/*$("#pname").blur(function(){
+
 		if($("#pname").val()!="" || $("#pname").val().length!=0)
 		{
 			$("#play").trigger("click");
 		}
-	});
+	});*/
 	
 	$("#pname").focus();
 	
@@ -57,7 +64,9 @@ $(document).ready(function() {
 	if($("#J_flag").val()=='0'){//当前是暂停状态下
 		
 		if(checkName()==false){			
-		}else{			
+		}else{		
+			
+		$("#J_flag").val("1");
 		
 		$(this).css("background","url(http://www.tuolar.com/apps/sinala/src/img/stop.png)");
 		var ids=[],px=[],itema=[],itemb=[],itemc=[],itemd=[],yyu=[],pyu=[],pxid=[],itemida=[],itemidb=[],itemidc=[],itemidd=[];
@@ -94,11 +103,12 @@ $(document).ready(function() {
 			tl_k ++;
 			if(tl_k > tl_len) tl_k = 0;
 		});
-		setTimeout(timeout(),1000);
+		
+		setTimeout("timeout()",7000);
 		
 	}
 	
-	}else{
+	}else{//活动状态下
 		
 			if(checkName()==false){
 				

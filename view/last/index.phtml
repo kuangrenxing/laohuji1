@@ -100,6 +100,41 @@ $(function(){
 	  onClose : function () {  }
 
 	});
+
+	fusion2.dialog.share
+	({
+	  // 可选。默认展示在分享弹框的输入框里的分享理由，建议传入，而且分享理由要简短而有吸引力
+	  desc:"快来看看你的美装艳遇吧",
+
+	  // 必须。应用简要描述。
+	  summary :"我是结果是：<?php echo $this->data['pyu'];?>",
+
+	  // 必须。分享的标题。
+	  title :"美装艳遇老虎机",
+
+	  // 可选。图片的URL。建议为应用的图标或者与分享相关的主题图片，规格为120*120 px
+	  // hosting应用要求将图片存放在APP域名下或腾讯CDN
+	  // non-hosting应用要求将图片上传到该应用开发者QQ号对应的QQ空间加密相册中。 
+	  // 即non-hosting应用图片域名必须为：qq.com、pengyou.com、qzoneapp.com、qqopenapp.com、tqapp.cn。
+	  pics :"<?php echo APP_DOMAIN.$this->data['pximg'];?>",
+
+	  // 可选。透传参数，用于onSuccess回调时传入的参数，用于识别请求。
+	  context:"share",
+
+	  // 可选。用户操作后的回调方法。
+	  onSuccess : function (opt) {    },
+
+	  // 可选。用户取消操作后的回调方法。
+	  onCancel : function (opt) {  },
+
+	  // 可选。对话框关闭时的回调方法。
+	  onClose : function () {  }
+
+	});
+
+
+
+	
 });
 
 
